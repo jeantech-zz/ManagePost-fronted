@@ -1,11 +1,17 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import IndexPost from '../components/IndexPost'
 
 const routes = [
   {
     path: '/',
     name: 'home',
     component: HomeView
+  },
+  {
+    path: '/indexPost',
+    name: 'indexPost',
+    component: IndexPost
   },
   {
     path: '/about',
