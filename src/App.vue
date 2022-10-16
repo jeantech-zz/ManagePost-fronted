@@ -6,7 +6,7 @@
       <img src="./assets/Monotone-White.png"/>
     </div>
     <ul class="nav navbar-nav navbar-right">
-      <li> <router-link to="/indexPost">Creators</router-link></li>
+       <span class="navbar-header">Creators</span>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <span class="navbar-header">Brands</span>
@@ -15,15 +15,23 @@
       <span class="navbar-header">Download App</span>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li> <router-link to="/indexPost">Learn More</router-link></li>
+       <li> <span class="navbar-header">Learn More</span></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-        <li> <router-link to="/home">Support</router-link></li>
+        <li> <span class="navbar-header">Support</span></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <i class="fi fi-rr-search"></i>
+        <li> <img src="./assets/lupa.png"/></li>
     </ul>
-    
+    <ul class="nav navbar-nav navbar-right">
+        <li><img src="./assets/bell.png"/>
+        <img src="./assets/Ellipse2.png"/></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+        <li><img src="./assets/Ellipse1.png"/>
+        <img src="./assets/chevron-down.png"/></li>
+       
+    </ul>
   </div>
   </nav>
  </header> 
@@ -39,35 +47,34 @@ height: 75px;
 background: #000000;
 
 }
+a:link {
+  text-decoration: none;
+}
 
 .navbar {
   padding: 30px;
   box-shadow: 0px 1px 0px rgba(197, 197, 197, 0.25);
 }
 
-.navbar-lupa {
-width: 16px;
-height: 18px;
+.navbar {
 
-font-family: 'Font Awesome 5 Free';
+font-family: 'Arial';
 font-style: normal;
-font-weight: 900;
-font-size: 16px;
-line-height: 18px;
+font-weight: 400;
+font-size: 14px;
+line-height: 16px;
+/* identical to box height */
+
 display: flex;
 align-items: center;
 text-align: center;
+letter-spacing: -0.02em;
 
 /* Dark Mode/Dark Mode Text */
 
 color: #FFFFFF;
 
 
-/* Inside auto layout */
-
-flex: none;
-order: 5;
-flex-grow: 0;
 }
 
 

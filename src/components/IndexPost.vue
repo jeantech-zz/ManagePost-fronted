@@ -3,41 +3,59 @@
     <h1>Manage Posts</h1>
     </div>
     <div class="container">
-  <div class="row">
-    <div class="col-sm">
-     <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <p class="card-text"></p>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm">
-      <div class="card" style="width: 18rem;">
-           <img class="card-img-top" src="../assets/Illustration.png" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Post Title</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis scelerisque arcu. Quisque facilisis aliquet molestie. Aenean convallis commodo augue convallis fringilla. Maecenas fermentum lorem porta ligula consequat dapibus. Phasellus.</p>
-                <a href="#" class="btn btn-card">Delete Post</a>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm">
-      <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="../assets/Illustration.png" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Post Title</h5>
-                <div class="card-text-div"><p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis scelerisque arcu. Quisque facilisis aliquet molestie. Aenean convallis commodo augue convallis fringilla. Maecenas fermentum lorem porta ligula consequat dapibus. Phasellus.</p></div>
-                <a href="#" class="btn btn-card">Delete Post</a>
-            </div>
-        </div>
-    </div>
-  </div>
+      <div class="row">
+      </div>
+    
+    <table class="table">
+      <tbody>        
+        <tr rowspan="3">
+            <td v-for="(post, index) in posts" :key="index">            
+              <div class="col-sm">
+                <div class="card" style="width: 18rem;">
+                  <img class="card-img-top" src="../assets/Illustration.png" alt="Card image cap">
+                  <div class="card-body">
+                      <h5 class="card-title">{{post.title}}</h5>
+                      <div class="card-text-div"><p class="card-text">{{post.description}}</p></div>
+                      <a href="#" class="btn btn-card">Delete Post</a>
+                  </div>
+              </div>
+            </div>              
+            </td>
+        </tr>                
+      </tbody>
+    </table>       
+
+    
+
 </div>
 </template>
 
 <script>
 export default {
-    
+  data(){
+    return{
+      posts:[],
+    }
+  },
+    created: function(){
+      this. getPostList();
+    },
+    methods:{
+      getPostList(){
+       fetch('http://localhost:8000/api/posts', {
+        method:"GET"
+       }).then(response=>response.json())
+        .then((dataResponsePost)=>{
+          console.log(dataResponsePost)
+
+          this.posts=[]
+          this.posts=dataResponsePost;
+          
+         console.log(this.posts)
+        })
+        .catch(console.log(''))
+      }
+    }
 }
 </script>
 
@@ -101,35 +119,25 @@ flex-grow: 1;
 
 .btn-card {
 /* Text */
-width: 94px;
+width: 194px;
 height: 24px;
 
 /* Web/Button Text */
-
 font-family: 'Arial';
 font-style: normal;
 font-weight: 700;
 font-size: 16px;
 line-height: 24px;
-/* identical to box height, or 150% */
-display: flex;
-align-items: center;
-letter-spacing: 0.04em;
-text-transform: capitalize;
 
 /* Buttons/Danger/Default */
 color: #DA5959;
 
-/* Inside auto layout */
-
-flex: none;
-order: 0;
-flex-grow: 0;
 }
 
 .card-title {
 /* Developer Meetup */
-width: 87px;
+display: flex;
+width: 250px;
 height: 23px;
 
 /* Web/Body Large */
@@ -140,16 +148,10 @@ font-size: 20px;
 line-height: 23px;
 
 /* identical to box height */
-letter-spacing: -0.02em;
+letter-spacing: 0.02em;
 
 /* Dark Mode/Dark Mode Text */
 color: #FFFFFF;
-
-
-/* Inside auto layout */
-flex: none;
-order: 0;
-flex-grow: 0;
 
 }
 
@@ -163,5 +165,46 @@ flex-grow: 0;
 /* Dark Mode/Dark Mode Text */
 color: #FFFFFF;
 
+word-wrap:inherit
+
 }
+
+.card-text-div{
+
+width: 250px;
+height: 180px;
+  box-shadow: 0px 1px 0px rgba(197, 197, 197, 0.25);
+}
+
+ .btn-card{
+
+  border: 3px solid  #DA5959;
+  margin: 1em 0;
+  padding: 8%;
+
+  /* Text */
+
+
+
+
+/* Web/Button Text */
+
+font-family: 'Arial';
+font-style: normal;
+font-weight: 700;
+font-size: 16px;
+line-height: 24px;
+align-self:flex-start;
+
+
+/* Buttons/Danger/Default */
+color: #DA5959;
+
+
+/* Inside auto layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+ }
 </style>
