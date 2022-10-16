@@ -9,6 +9,14 @@
     <table class="table">
       <tbody>        
         <tr rowspan="3">
+          <div class="col-sm">
+          <div class="card" style="width: 18rem;">
+                  <div class="card-body">
+                      <img src="../assets/mas.png">
+                      <img src="../assets/Createnew.png"/>
+                  </div>
+              </div>
+          </div>
             <td v-for="(post, index) in posts" :key="index">            
               <div class="col-sm">
                 <div class="card" style="width: 18rem;">
@@ -181,11 +189,6 @@ height: 180px;
   border: 3px solid  #DA5959;
   margin: 1em 0;
   padding: 8%;
-
-  /* Text */
-
-
-
 
 /* Web/Button Text */
 
