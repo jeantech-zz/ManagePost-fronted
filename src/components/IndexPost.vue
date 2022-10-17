@@ -10,9 +10,9 @@
       <tbody>        
         <tr rowspan="3">
           <div class="col-sm">
-          <div class="card" style="width: 18rem;">
-                  <div class="card-body">
-                      <img src="../assets/mas.png">
+          <div class="card-create" style="width: 18rem;">
+                  <div>
+                      <img src="../assets/mas.png"><br/>
                       <img src="../assets/Createnew.png" v-on:click="showCreate()"/>                      
                   </div>
               </div>
@@ -205,13 +205,11 @@ height: 180px;
 }
 
  .btn-card{
-
   border: 3px solid  #DA5959;
   margin: 1em 0;
   padding: 8%;
 
 /* Web/Button Text */
-
 font-family: 'Arial';
 font-style: normal;
 font-weight: 700;
@@ -223,11 +221,40 @@ align-self:flex-start;
 /* Buttons/Danger/Default */
 color: #DA5959;
 
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+ }
+
+ .card-create{
+  /* Post Card */
+
+
+box-sizing: border-box;
+
+/* Auto layout */
+
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 30px;
+gap: 20px;
+
+width: 368px;
+height: 467px;
+
+background: rgba(255, 255, 255, 0.05);
+/* divider and lines gray */
+
+border: 3px dashed #4F4F4F;
+border-radius: 10px;
 
 /* Inside auto layout */
 
 flex: none;
 order: 0;
-flex-grow: 0;
+flex-grow: 1;
  }
 </style>
