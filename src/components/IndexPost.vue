@@ -9,7 +9,7 @@
     <table class="table">
       <tbody>        
         <tr rowspan="3">
-          <div class="col-sm">
+          <div >
           <div class="card-create" style="width: 18rem;">
                   <div>
                       <img src="../assets/mas.png"><br/>
@@ -18,13 +18,16 @@
               </div>
           </div>
             <td v-for="(post, index) in posts" :key="index">            
-              <div class="col-sm">
-                <div class="card" style="width: 18rem;">
+              <div >
+                <div class="card-show" >
                   <img class="card-img-top" src="../assets/Illustration.png" alt="Card image cap"  v-on:click="editPost(post._id)" >
                   <div class="card-body">
                       <h5 class="card-title">{{post.title}}</h5>
-                      <div class="card-text-div"><p class="card-text">{{post.description}}</p></div>                         
-                       <button type="submit" v-on:click="deletePost(post._id)" class="btn btn-card">Delete Post</button>
+                      <div class="card-text-div"><p class="card-text">{{post.description}}</p></div>    
+                      <img  class="card-img-div" src="../assets/Line5.png"><br/>       
+                      <button type="submit" src="../assets/Delete.png" v-on:click="deletePost(post._id)" class="btn btn-card-delete">
+                       <img class="card-img-div-delete" src="../assets/Delete.png"><br/>
+                      </button>                                                            
                   </div>
               </div>
             </div>              
@@ -145,20 +148,32 @@ flex-grow: 1;
     margin: 0 auto;
 }
 
-.btn-card {
-/* Text */
-width: 194px;
-height: 24px;
+.btn-card-delete {
+/* Button */
+box-sizing: border-box;
 
-/* Web/Button Text */
-font-family: 'Arial';
-font-style: normal;
-font-weight: 700;
-font-size: 16px;
-line-height: 24px;
+/* Auto layout */
+
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+
+
+width: 328px;
+height: 26px;
 
 /* Buttons/Danger/Default */
-color: #DA5959;
+
+border: 1px solid #DA5959;
+border-radius: 4px;
+
+/* Inside auto layout */
+
+flex: none;
+order: 3;
+align-self: stretch;
+flex-grow: 0;
 
 }
 
@@ -181,6 +196,12 @@ letter-spacing: 0.02em;
 /* Dark Mode/Dark Mode Text */
 color: #FFFFFF;
 
+/* Inside auto layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+
 }
 
 .card-text {
@@ -199,9 +220,29 @@ word-wrap:inherit
 
 .card-text-div{
 
-width: 250px;
-height: 180px;
-  box-shadow: 0px 1px 0px rgba(197, 197, 197, 0.25);
+width: 328px;
+height: 130px;
+/* Web/Small */
+
+font-family: 'Arial';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 16px;
+letter-spacing: 0.02em;
+align-content: stretch;
+
+/* Dark Mode/Dark Mode Text */
+
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
 }
 
  .btn-card{
@@ -229,12 +270,9 @@ flex-grow: 0;
 
  .card-create{
   /* Post Card */
-
-
 box-sizing: border-box;
 
 /* Auto layout */
-
 display: flex;
 flex-direction: column;
 justify-content: center;
@@ -257,4 +295,71 @@ flex: none;
 order: 0;
 flex-grow: 1;
  }
+ .card-show{
+  /* Post Card */
+
+
+/* Auto layout */
+
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px 0px 20px;
+
+width: 368px;
+height: 467.12px;
+
+/* BG | Cards | Outlines/Light Black */
+
+background: #131313;
+border-radius: 10px;
+
+/* Inside auto layout */
+
+flex: none;
+order: 1;
+flex-grow: 1;
+ }
+
+ .card-img-div{
+  /* Line 5 */
+left: 0%;
+right: 0%;
+
+/* BG | Cards | Outlines/Dividers */
+
+
+ }
+
+ .card-img-div-delete{
+  /* Text */
+width: 74px;
+height: 14px;
+
+/* Web/Button Text */
+
+font-family: 'Arial';
+font-style: normal;
+font-weight: 700;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
+
+display: flex;
+align-items: center;
+letter-spacing: 0.04em;
+text-transform: capitalize;
+
+/* Buttons/Danger/Default */
+
+color: #DA5959;
+
+
+/* Inside auto layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+ }
+
 </style>
