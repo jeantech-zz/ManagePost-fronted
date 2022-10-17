@@ -10,7 +10,7 @@
       <tbody>        
         <tr rowspan="3">
           <div >
-          <div class="card-create" style="width: 18rem;">
+          <div class="card-create" style="width: 23rem;">
                   <div>
                       <img src="../assets/mas.png"><br/>
                       <img src="../assets/Createnew.png" v-on:click="showCreate()"/>                      
@@ -280,7 +280,7 @@ align-items: center;
 padding: 30px;
 gap: 20px;
 
-width: 368px;
+width: 38px;
 height: 467px;
 
 background: rgba(255, 255, 255, 0.05);
