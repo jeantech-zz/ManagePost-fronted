@@ -23,8 +23,8 @@
                   <img class="card-img-top" src="../assets/Illustration.png" alt="Card image cap">
                   <div class="card-body">
                       <h5 class="card-title">{{post.title}}</h5>
-                      <div class="card-text-div"><p class="card-text">{{post.description}}</p></div>
-                      <a href="#" class="btn btn-card">Delete Post</a>
+                      <div class="card-text-div"><p class="card-text">{{post.description}}</p></div>                      
+                       <button type="submit" v-on:click="deletePost(post._id)" class="btn btn-card">Delete Post</button>
                   </div>
               </div>
             </div>              
@@ -49,6 +49,22 @@ export default {
       this. getPostList();
     },
     methods:{
+      deletePost(id){
+       fetch('http://127.0.0.1:8000/api/posts/'+id, {
+                    method:"DELETE",                    
+                    headers:{"Content-Type":"application/json"}
+       }).then(response=>response.json())
+        .then((dataResponsePost)=>{
+          console.log(dataResponsePost)
+
+          this.posts=[]
+          this.posts=dataResponsePost;
+          window.location.href='IndexPost'  
+         console.log(this.posts)
+        })
+        .catch(console.log(''))
+      },
+
       getPostList(){
        fetch('http://localhost:8000/api/posts', {
         method:"GET"
