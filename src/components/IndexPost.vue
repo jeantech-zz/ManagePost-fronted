@@ -13,17 +13,17 @@
           <div class="card" style="width: 18rem;">
                   <div class="card-body">
                       <img src="../assets/mas.png">
-                      <img src="../assets/Createnew.png"/>
+                      <img src="../assets/Createnew.png" v-on:click="showCreate()"/>                      
                   </div>
               </div>
           </div>
             <td v-for="(post, index) in posts" :key="index">            
               <div class="col-sm">
                 <div class="card" style="width: 18rem;">
-                  <img class="card-img-top" src="../assets/Illustration.png" alt="Card image cap">
+                  <img class="card-img-top" src="../assets/Illustration.png" alt="Card image cap"  v-on:click="editPost(post._id)" >
                   <div class="card-body">
                       <h5 class="card-title">{{post.title}}</h5>
-                      <div class="card-text-div"><p class="card-text">{{post.description}}</p></div>                      
+                      <div class="card-text-div"><p class="card-text">{{post.description}}</p></div>                         
                        <button type="submit" v-on:click="deletePost(post._id)" class="btn btn-card">Delete Post</button>
                   </div>
               </div>
@@ -32,9 +32,6 @@
         </tr>                
       </tbody>
     </table>       
-
-    
-
 </div>
 </template>
 
@@ -57,8 +54,8 @@ export default {
         .then((dataResponsePost)=>{
           console.log(dataResponsePost)
 
-          this.posts=[]
-          this.posts=dataResponsePost;
+         /* this.posts=[]
+          this.posts=dataResponsePost;*/
           window.location.href='IndexPost'  
          console.log(this.posts)
         })
@@ -78,8 +75,15 @@ export default {
          console.log(this.posts)
         })
         .catch(console.log(''))
+      },
+      showCreate(){
+        window.location.href='CreatePost' 
+      },
+      editPost(id){
+        window.location.href='editPost/'+id 
       }
-    }
+    },
+    
 }
 </script>
 
